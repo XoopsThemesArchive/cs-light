@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="generator" content="XOOPS" />
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_imageurl}>style.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+<body>
+<div align="center">
+  <table cellspacing="0" cellpadding="0" border="0" id="header">
+    <tr>
+	  <td id="headerlogo"><a id="sname" href="<{$xoops_url}>/" title="<{$xoops_sitename}> - <{$xoops_pagetitle}>"><{$xoops_sitename}></a></td>
+      <td id="headerbanner"><{$xoops_banner}></td>
+    </tr>
+    <tr>
+      <td id="headerbar" colspan="2"><div id="hsearch">
+          <form style="margin: 0px;" action="<{$xoops_url}>/search.php" method="get">
+            <input class="headert" type="text" name="query" size="12" />
+            <input type="hidden" name="action" value="results" />
+            <input class="headerb" type="submit" value="Search" />
+          </form>
+        </div>
+        <div id="hlogin"><{if $xoops_isuser == false}>
+          <form style="margin: 0px;" action="<{$xoops_url}>/user.php" method="post">
+            <input class="headert" type="text" name="uname" size="12" onfocus="this.value=''" value="User Name" />
+            <input class="headert" type="password" name="pass" size="12" onfocus="this.value=''" value='myxoops'/>
+            <input type="hidden" name="xoops_redirect" value="/index.php" />
+            <input type="hidden" name="op" value="login" />
+            <input class="headerb" type="submit" value="Login" />
+          </form>
+<{else}>Account:<a class="umenu" href="<{$xoops_url}>/user.php" title="View Account"> <img src="<{$xoops_url}>/themes/cs-light/images/viewaccount.gif" alt="View Account" height="16" width="16" border="0" />&nbsp;View</a>&nbsp;<a class="umenu" href="<{$xoops_url}>/edituser.php" title="Edit Account"> <img src="<{$xoops_url}>/themes/cs-light/images/editaccount.gif" alt="Edit Account" height="16" width="16" border="0" />&nbsp;Edit</a>&nbsp;<a class="umenu" href="<{$xoops_url}>/notifications.php" title="Notifications"><img src="<{$xoops_url}>/themes/cs-light/images/notifications.gif" alt="Notifications" height="16" width="16" border="0" />&nbsp;Notifications</a>&nbsp;<a class="umenu" href="<{$xoops_url}>/viewpmsg.php" title="Inbox"><img src="<{$xoops_url}>/themes/cs-light/images/inbox.gif" alt="Inbox" height="16" width="16" border="0" />&nbsp;Inbox</a><{if $xoops_isadmin}>&nbsp;<a class="umenu" href="<{$xoops_url}>/admin.php" title="Administration"><img src="<{$xoops_url}>/themes/cs-light/images/administration.gif" alt="Administration" height="16" width="16" border="0" />&nbsp;Administration</a><{/if}>&nbsp;<a class="umenu" href="<{$xoops_url}>/user.php?op=logout" title="Logout"><img src="<{$xoops_url}>/themes/cs-light/images/logout.gif" alt="Logout" height="16" width="16" border="0" />&nbsp;Logout</a><{/if}></div></td>
+    </tr>
+  </table>
+  <table cellspacing="0" cellpadding="0" border="0" id="mainbody">
+    <tr>
+<{if $xoops_showlblock == 1}>
+      <td id="leftcolumn"><!-- Start left blocks loop -->
+<{foreach item=block from=$xoops_lblocks}> <{include file="cs-light/blocks/theme_blockleft.html"}> <{/foreach}>
+        <!-- End left blocks loop -->
+      </td>
+<{/if}>
+      <td id="centercolumn">
+	  <!-- Display center blocks if any -->
+<{if $xoops_showcblock == 1}>
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td id="centerCcolumn" colspan="2"><!-- Start center-center blocks loop -->
+<{foreach item=block from=$xoops_ccblocks}> <{include file="cs-light/blocks/theme_blockcenter_c.html"}> <{/foreach}>
+              <!-- End center-center blocks loop -->
+            </td>
+          </tr>
+          <tr>
+            <td id="centerLcolumn"><!-- Start center-left blocks loop -->
+<{foreach item=block from=$xoops_clblocks}> <{include file="cs-light/blocks/theme_blockcenter_l.html"}> <{/foreach}>
+              <!-- End center-left blocks loop -->
+            </td>
+            <td id="centerRcolumn"><!-- Start center-right blocks loop -->
+<{foreach item=block from=$xoops_crblocks}> <{include file="cs-light/blocks/theme_blockcenter_r.html"}> <{/foreach}>
+              <!-- End center-right blocks loop -->
+            </td>
+          </tr>
+        </table>
+<{/if}>
+        <!-- End display center blocks -->
+        <div id="content"><{$xoops_contents}> </div></td>
+<{if $xoops_showrblock == 1}>
+      <td id="rightcolumn"><!-- Start right blocks loop -->
+<{foreach item=block from=$xoops_rblocks}> <{include file="cs-light/blocks/theme_blockright.html"}> <{/foreach}>
+        <!-- End right blocks loop -->
+      </td>
+<{/if}> </tr>
+  </table>
+  <table cellspacing="0" cellpadding="0" border="0" id="footer">
+    <tr>
+      <td><div id="fleft"><{$xoops_footer}></div>
+        <div id="fright"><a style="padding:1px;" href="<{$xoops_url}>" target="_blank" title="Theme by MyWebResource Design!"><img src="<{$xoops_url}>/themes/cs-light/images/designby-mini.png" alt="Theme by MyWebResource Design!" width="88" height="15" border="0" /></a></div></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
